@@ -82,6 +82,7 @@ bash run_coverage.sh
 ### Visão Geral
 O sistema segue uma arquitetura em camadas com separação clara de responsabilidades:
 
+```
 ┌─────────────────┐
 │   Presentation  │ ← Interface do usuário
 ├─────────────────┤
@@ -91,7 +92,7 @@ O sistema segue uma arquitetura em camadas com separação clara de responsabili
 ├─────────────────┤
 │     Model       │ ← Entidades de domínio
 └─────────────────┘
-
+```
 ### Componentes Principais
 
 #### 1. AI Virtual Agent (`ai_virtual_agent.py`)
@@ -121,6 +122,7 @@ O sistema segue uma arquitetura em camadas com separação clara de responsabili
 
 ### Estrutura Detalhada
 
+```
 agent_carros/
 ├── ai_virtual_agent.py          # Ponto de entrada principal
 ├── carros_gerados.json          # Dados de carros (gerados)
@@ -165,6 +167,8 @@ agent_carros/
 │   ├── test_ai_service.py      # Testes do AIService
 │   ├── test_intent_service.py  # Testes do IntentService
 │   └── conftest.py             # Configurações de teste
+
+```
 
 ### Finalidade de Cada Diretório
 
