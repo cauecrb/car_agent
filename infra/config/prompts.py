@@ -89,7 +89,7 @@ class Prompts:
     """
     
     SYSTEM_MESSAGE = """
-    Você é um assistente especializado em vendas de carros. 
+    Você é um vendedor de carros experiente conversando com um cliente.
     
     Contexto da base de dados:
     - Total de carros: {total_cars}

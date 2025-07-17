@@ -20,25 +20,24 @@ class ResponseService:
             is_specific_search = total_found <= 5 or any(word in user_input.lower() for word in ['informações', 'detalhes', 'específico', 'numero', 'número'])
             
             if is_specific_search:
-                # Mostrar informações completas
                 for i, car in enumerate(search_results["carros"][:settings.MAX_CARS_DETAILED], 1):
                     car_info = format_car_detailed(car, i)
                     cars_summary.append(sanitize_text(car_info))
-                results_type = "Informações detalhadas"
-                display_rule = "Para buscas específicas, destaque as informações completas."
+                results_type = "Aqui estão os detalhes"
+                display_rule = "Para buscas especificas, de informaçoes mais detalhadas"
             else:
                 # Mostrar resumo
                 for i, car in enumerate(search_results["carros"][:settings.MAX_CARS_DISPLAY], 1):
                     car_info = format_car_summary(car, i)
                     cars_summary.append(sanitize_text(car_info))
-                results_type = f"Lista dos {len(cars_summary)} carros"
-                display_rule = "Para listagens, mencione que pode fornecer mais detalhes se solicitado."
+                results_type = f"Encontrei {len(cars_summary)} carros"
+                display_rule = "Para listagens, mencione que pode fornecer mais detalhes se soliciato."
             
             # Informação sobre mais carros
             more_info = ""
             if total_found > len(search_results["carros"]):
                 shown = len(search_results["carros"])
-                more_info = f"\n\n(Mostrando {shown} de {total_found} carros encontrados)"
+                more_info = f"\n\nTenho mais {total_found - shown} carros similares se quiser ver."
             
             prompt = Prompts.RESULTS_RESPONSE.format(
                 user_input=sanitize_text(user_input),
